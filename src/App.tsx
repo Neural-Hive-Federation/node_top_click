@@ -1,391 +1,364 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Clock, 
+  Facebook, 
+  Instagram, 
+  Youtube, 
+  Send,
+  Smartphone,
+  Wrench,
+  ShoppingBag,
+  Award,
+  ShieldCheck,
+  Star,
+  ChevronRight
+} from 'lucide-react';
 import { SalesAdvisorWidget } from './components/SalesAdvisorWidget';
 import { NeuralFeed } from './components/NeuralFeed';
 
 function App() {
+  const accentColor = '#3B82F6'; // Azul vibrante
+
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-pink-500/30">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-blue-500/30 overflow-x-hidden">
       <SalesAdvisorWidget 
         nodeName="Top Click" 
-        adn="&quot;{\&quot;report\&quot;:\&quot;Venta de ropa nueva, celulares nuevos y usados, servicio técnico y accesorios\&quot;,\&quot;opportunity_score\&quot;:95,\&quot;google_place_id\&quot;:\&quot;manual\&quot;,\&quot;location\&quot;:{\&quot;latitude\&quot;:7.8939,\&quot;longitude\&quot;:-72.5078},\&quot;custom_parameters\&quot;:{\&quot;template\&quot;:\&quot;prism\&quot;,\&quot;color\&quot;:\&quot;azul\&quot;,\&quot;business_name\&quot;:\&quot;Top Click\&quot;,\&quot;niche\&quot;:\&quot;Moda y tecnología (venta de ropa, celulares y servicio técnico)\&quot;,\&quot;city\&quot;:\&quot;Cúcuta, Colombia\&quot;,\&quot;description\&quot;:\&quot;Venta de ropa nueva, celulares nuevos y usados, servicio técnico y accesorios\&quot;}}&quot;" 
+        adn='{"report":"Venta de ropa nueva, celulares nuevos y usados, servicio técnico y accesorios","opportunity_score":95,"google_place_id":"manual","location":{"latitude":7.8939,"longitude":-72.5078},"custom_parameters":{"template":"prism","color":"azul","business_name":"Top Click","niche":"Moda y tecnología (venta de ropa, celulares y servicio técnico)","city":"Cúcuta, Colombia","description":"Venta de ropa nueva, celulares nuevos y usados, servicio técnico y accesorios"}}' 
       />
-      
-      const accentColor = '#F97316';
 
-const App = () => {
-  
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      {/* --- NAVBAR --- */}
+      <header className="fixed top-0 left-0 w-full z-40 bg-black/80 backdrop-blur-xl border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <div className="h-1 w-12 rounded-full" style={{ backgroundColor: accentColor }} />
-            <h1 className="text-3xl font-black uppercase tracking-tighter italic">
-              Top <span style={{ color: accentColor }}>Click</span>
+            <div className="h-2 w-8 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+            <h1 className="text-2xl font-black uppercase tracking-tighter italic">
+              Top <span className="text-blue-500">Click</span>
             </h1>
           </motion.div>
-          <nav className="hidden md:flex items-center gap-6">
-            <a href="#inicio" className="text-gray-700 hover:text-orange-500 transition-colors">Inicio</a>
-            <a href="#servicios" className="text-gray-700 hover:text-orange-500 transition-colors">Servicios</a>
-            <a href="#contacto" className="text-gray-700 hover:text-orange-500 transition-colors">Contacto</a>
+          
+          <nav className="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-widest">
+            <a href="#inicio" className="hover:text-blue-400 transition-colors">Inicio</a>
+            <a href="#servicios" className="hover:text-blue-400 transition-colors">Servicios</a>
+            <a href="#feed" className="hover:text-blue-400 transition-colors">Noticias</a>
+            <a href="#contacto" className="hover:text-blue-400 transition-colors">Contacto</a>
           </nav>
+
+          <a 
+            href="https://wa.me/573005132164?text=Hola! Vengo desde su sitio web."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 border border-blue-500/30 hover:border-blue-500 text-blue-400 hover:text-white rounded-lg text-xs font-mono uppercase tracking-wider transition-all bg-blue-950/20"
+          >
+            Escríbenos
+          </a>
         </div>
       </header>
 
-      <main>
-        <section id="inicio" className="py-20 px-4">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* --- HERO SECTION --- */}
+      <section id="inicio" className="relative pt-32 pb-24 md:pt-48 md:pb-36 flex items-center overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-black to-black z-0" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 space-y-6">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-xs font-mono"
+            >
+              <Star size={12} className="fill-blue-400" />
+              <span>Calificación Google: ⭐ 4.9 (120+ Reseñas)</span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl sm:text-6xl font-black tracking-tight leading-none uppercase"
+            >
+              Tecnología Elite <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
+                &amp; Moda Urbana
+              </span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
+              className="text-slate-400 text-base sm:text-lg max-w-xl font-light leading-relaxed"
             >
-              <h2 className="text-5xl font-black mb-6">
-                Tecnología y Moda<br />
-                <span style={{ color: accentColor }}>al Mejor Precio</span>
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                En Top Click ofrecemos celulares nuevos y usados, servicio técnico especializado y las últimas tendencias en moda femenina.
-              </p>
-              <div className="flex gap-4">
-                <a
-                  href="#contacto"
-                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-                >
-                  Contáctanos
-                </a>
-                <a
-                  href="#servicios"
-                  className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-bold py-3 px-6 rounded-lg transition-colors"
-                >
-                  Nuestros Servicios
-                </a>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-              className="relative"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Top Click - Tecnología y Moda"
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg flex items-center gap-3">
-                <div className="bg-orange-100 p-2 rounded-lg">
-                  <Phone size={24} className="text-orange-500" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Llámanos ahora</p>
-                  <p className="font-bold text-orange-500">+57 310 555 1234</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+              Tu portal de tecnología, servicio técnico garantizado y las últimas tendencias en vestuario. Conectamos tu estilo con la máxima innovación en Cúcuta.
+            </motion.p>
 
-        <section className="py-16 px-4 bg-white">
-          <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap gap-4 pt-2"
             >
-              <div className="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
-                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone size={32} className="text-orange-500" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Celulares</h3>
-                <p className="text-gray-600">Nuevos y usados con garantía. Encuentra el modelo perfecto para ti.</p>
-              </div>
-              <div className="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
-                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail size={32} className="text-orange-500" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Servicio Técnico</h3>
-                <p className="text-gray-600">Reparación de celulares con técnicos certificados y repuestos originales.</p>
-              </div>
-              <div className="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow">
-                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MapPin size={32} className="text-orange-500" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Moda Femenina</h3>
-                <p className="text-gray-600">Las últimas tendencias en ropa para mujer con la mejor relación calidad-precio.</p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        <section id="servicios" className="py-16 px-4 bg-gray-50">
-          <div className="max-w-6xl mx-auto text-center mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl font-black mb-4">Nuestros Servicios</h2>
-              <div className="h-1 w-20 bg-orange-500 mx-auto mb-4" />
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                En Top Click nos especializamos en ofrecer productos y servicios de calidad con atención personalizada.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        <section id="contacto" className="py-20 px-4 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+              <a
+                href="https://wa.me/573005132164?text=Hola! Vengo desde su sitio web y me interesa el servicio técnico."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold uppercase text-xs tracking-wider rounded-lg transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:scale-[1.02]"
               >
-                <h2 className="text-4xl font-black mb-6">Contáctanos</h2>
-                <p className="text-gray-600 mb-8">
-                  ¿Tienes alguna pregunta o necesitas más información? ¡Estamos aquí para ayudarte!
-                </p>
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="bg-orange-100 p-3 rounded-lg">
-                      <Phone size={24} className="text-orange-500" />
-                    </div>
-                    <div>
-                      <p className="font-bold">Teléfono</p>
-                      <p className="text-gray-600">+57 310 555 1234</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="bg-orange-100 p-3 rounded-lg">
-                      <Mail size={24} className="text-orange-500" />
-                    </div>
-                    <div>
-                      <p className="font-bold">Email</p>
-                      <p className="text-gray-600">contacto@topclick.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="bg-orange-100 p-3 rounded-lg">
-                      <MapPin size={24} className="text-orange-500" />
-                    </div>
-                    <div>
-                      <p className="font-bold">Dirección</p>
-                      <p className="text-gray-600">Calle 12 # 34-56, Local 101, Centro Comercial La Florida, Cúcuta, Colombia</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="bg-orange-100 p-3 rounded-lg">
-                      <Clock size={24} className="text-orange-500" />
-                    </div>
-                    <div>
-                      <p className="font-bold">Horario</p>
-                      <p className="text-gray-600">Lunes a Sábado: 9:00 AM - 7:00 PM</p>
-                      <p className="text-gray-600">Domingos: 10:00 AM - 5:00 PM</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex gap-4 mt-8">
-                  <a href="https://facebook.com/topclickcucuta" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-500 transition-colors">
-                    <Facebook size={24} />
-                  </a>
-                  <a href="https://instagram.com/topclickcucuta" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-500 transition-colors">
-                    <Instagram size={24} />
-                  </a>
-                  <a href="https://youtube.com/@topclickcucuta" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-500 transition-colors">
-                    <Youtube size={24} />
-                  </a>
-                  <a href="https://wa.me/573105551234" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-500 transition-colors">
-                    <Send size={24} />
-                  </a>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Nombre
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                      Teléfono
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Mensaje
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-                  >
-                    Enviar Mensaje
-                  </button>
-                </form>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="bg-gray-900 text-white py-8 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Top Click</h3>
-              <p className="text-gray-400 mb-4">
-                Tu tienda de confianza en tecnología y moda en Cúcuta. Celulares nuevos y usados, servicio técnico especializado y las últimas tendencias en ropa femenina.
-              </p>
-              <div className="flex gap-4">
-                <a href="https://facebook.com/topclickcucuta" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-500 transition-colors">
-                  <Facebook size={20} />
-                </a>
-                <a href="https://instagram.com/topclickcucuta" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-500 transition-colors">
-                  <Instagram size={20} />
-                </a>
-                <a href="https://youtube.com/@topclickcucuta" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-500 transition-colors">
-                  <Youtube size={20} />
-                </a>
-                <a href="https://wa.me/573105551234" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-500 transition-colors">
-                  <Send size={20} />
-                </a>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Información de Contacto</h3>
-              <div className="space-y-3 text-gray-400">
-                <div className="flex items-center gap-3">
-                  <Phone size={16} className="text-orange-500" />
-                  <span>+57 310 555 1234</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail size={16} className="text-orange-500" />
-                  <span>contacto@topclick.com</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin size={16} className="text-orange-500" />
-                  <span>Calle 12 # 34-56, Local 101, Centro Comercial La Florida, Cúcuta</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Clock size={16} className="text-orange-500" />
-                  <span>Lun-Sáb: 9:00 AM - 7:00 PM | Dom: 10:00 AM - 5:00 PM</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Top Click. Todos los derechos reservados.
-            </p>
-            <p className="text-gray-400 text-sm mt-4 md:mt-0">
-              Powered by{' '}
-              <a href="https://neural-nexus-inky.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-400">
-                PNN Portal Neural Nexus | Nexus Hive Federation
+                Servicio Técnico
               </a>
-            </p>
+              <a
+                href="#servicios"
+                className="px-8 py-4 border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white font-bold uppercase text-xs tracking-wider rounded-lg transition-all hover:scale-[1.02]"
+              >
+                Explorar Tienda
+              </a>
+            </motion.div>
           </div>
-        </div>
-      </footer>
-    </div>
-  );
-};
 
-      {/* --- SECCIONES INTERMEDIAS DINÁMICAS --- */}
-      // ... [SECCIONES INTERMEDIAS...]
-
-      <NeuralFeed nodeId="91e6342d-c0d8-440b-85b9-4a0c3a8a9959" />
-
-      {/* Sección de Ubicación Física */}
-      
-      <section className="py-20 bg-[#050505] border-t border-white/10 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="bg-[#0a0f1c]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded text-blue-400">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <h3 className="font-bold text-lg text-white uppercase tracking-wider">Top Click</h3>
-                <p className="text-slate-400 text-sm mt-1">Cúcuta, Colombia</p>
-                <p className="text-blue-400 text-xs font-mono uppercase tracking-widest mt-0.5">Cúcuta, Colombia</p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4 }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 p-3 group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
+              <img
+                src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80"
+                alt="Top Click - Smartphones y Estilo"
+                className="rounded-xl object-cover w-full h-[320px] sm:h-[400px] transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute bottom-6 left-6 right-6 z-20 flex justify-between items-end">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/50">Celulares</span>
+                  <h4 className="font-bold text-lg text-white mt-1">Garantía Exclusiva</h4>
+                </div>
+                <div className="flex gap-1">
+                  <Star size={16} className="text-yellow-400 fill-yellow-400" />
+                  <Star size={16} className="text-yellow-400 fill-yellow-400" />
+                  <Star size={16} className="text-yellow-400 fill-yellow-400" />
+                  <Star size={16} className="text-yellow-400 fill-yellow-400" />
+                  <Star size={16} className="text-yellow-400 fill-yellow-400" />
+                </div>
               </div>
             </div>
-            <a 
-              href="https://www.google.com/maps/search/?api=1&query=7.8939,-72.5078" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors flex items-center gap-2"
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- SERVICIOS SECTION --- */}
+      <section id="servicios" className="py-24 bg-[#030303] border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-widest text-blue-500">¿Qué Ofrecemos?</span>
+              <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight mt-2">Nuestras Soluciones</h3>
+            </div>
+            <p className="text-slate-400 max-w-md text-sm font-light">
+              Fusionamos soporte técnico especializado con un catálogo de dispositivos móviles nuevos/usados y vestuario de moda.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Servicio 1: Celulares */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-8 bg-[#070911] border border-white/5 hover:border-blue-500/30 rounded-2xl transition-all group hover:-translate-y-1"
             >
-              Cómo Llegar
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
+              <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                <Smartphone size={24} />
+              </div>
+              <h4 className="text-xl font-bold uppercase tracking-wide mb-3">Celulares Nuevos &amp; Usados</h4>
+              <p className="text-slate-400 text-sm font-light leading-relaxed mb-6">
+                Venta de dispositivos de las mejores marcas con garantía y asesoramiento personalizado. Equipos garantizados y homologados.
+              </p>
+              <a 
+                href="https://wa.me/573005132164?text=Hola! Quiero cotizar un celular."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-blue-400 group-hover:text-blue-300 hover:underline"
+              >
+                Cotizar Celular <ChevronRight size={14} />
+              </a>
+            </motion.div>
+
+            {/* Servicio 2: Servicio Técnico */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="p-8 bg-[#070911] border border-white/5 hover:border-blue-500/30 rounded-2xl transition-all group hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                <Wrench size={24} />
+              </div>
+              <h4 className="text-xl font-bold uppercase tracking-wide mb-3">Servicio Técnico Especializado</h4>
+              <p className="text-slate-400 text-sm font-light leading-relaxed mb-6">
+                Reparación de pantallas, baterías, software y daños físicos con técnicos experimentados y repuestos garantizados.
+              </p>
+              <a 
+                href="https://wa.me/573005132164?text=Hola! Necesito soporte o revisión para un celular."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-blue-400 group-hover:text-blue-300 hover:underline"
+              >
+                Solicitar Soporte <ChevronRight size={14} />
+              </a>
+            </motion.div>
+
+            {/* Servicio 3: Moda */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="p-8 bg-[#070911] border border-white/5 hover:border-blue-500/30 rounded-2xl transition-all group hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                <ShoppingBag size={24} />
+              </div>
+              <h4 className="text-xl font-bold uppercase tracking-wide mb-3">Ropa Nueva y Accesorios</h4>
+              <p className="text-slate-400 text-sm font-light leading-relaxed mb-6">
+                Catálogo exclusivo de ropa moderna con un estilo urbano increíble. Ropa nueva para complementar tu outfit diario.
+              </p>
+              <a 
+                href="https://wa.me/573005132164?text=Hola! Me interesa ver el catálogo de ropa."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-blue-400 group-hover:text-blue-300 hover:underline"
+              >
+                Ver Catálogo Ropa <ChevronRight size={14} />
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
-      
 
-      <footer className="py-12 border-t border-white/10 bg-[#020202] text-slate-400">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      {/* --- SECCIÓN FEED / NOTICIAS --- */}
+      <section id="feed" className="py-24 bg-black border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-xs font-mono uppercase tracking-widest text-blue-500">Noticias de la Colmena</span>
+            <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight mt-2">Novedades &amp; Tendencias</h3>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <NeuralFeed nodeId="91e6342d-c0d8-440b-85b9-4a0c3a8a9959" />
+          </div>
+        </div>
+      </section>
+
+      {/* --- SECCIÓN CONTACTO --- */}
+      <section id="contacto" className="py-24 bg-[#030303] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-6 space-y-8">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-widest text-blue-500">¿Dónde Encontrarnos?</span>
+              <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight mt-2">Búnker de Operaciones</h3>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-400">
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white uppercase tracking-wider text-sm">Dirección</h4>
+                  <p className="text-slate-400 text-sm mt-1">Cúcuta, Colombia</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-400">
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white uppercase tracking-wider text-sm">WhatsApp</h4>
+                  <p className="text-slate-400 text-sm mt-1">+57 300 513 2164</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-400">
+                  <Clock size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white uppercase tracking-wider text-sm">Horario de Atención</h4>
+                  <p className="text-slate-400 text-sm mt-1">Lunes a Sábado: 8:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6">
+            <div className="bg-[#070911] border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded text-blue-400">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-white uppercase tracking-wider">Top Click</h3>
+                  <p className="text-slate-400 text-sm mt-1">Ubicación Georeferenciada</p>
+                  <p className="text-blue-400 text-xs font-mono uppercase tracking-widest mt-0.5">Cúcuta, Colombia</p>
+                </div>
+              </div>
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=7.8939,-72.5078" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
+              >
+                Cómo Llegar
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- FOOTER --- */}
+      <footer className="py-12 border-t border-white/10 bg-black text-slate-500">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col items-center md:items-start">
             <span className="font-bold text-white tracking-wider">TOP CLICK</span>
-            <p className="text-[10px] text-slate-600 mt-1">&copy; 2026 Todos los derechos reservados.</p>
+            <p className="text-[10px] text-slate-600 mt-1">&copy; {new Date().getFullYear()} Todos los derechos reservados.</p>
           </div>
+          
           <div className="flex items-center gap-6">
-            
-            
-            
-            
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-sm">
+              Instagram
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-sm">
+              Facebook
+            </a>
           </div>
-          <div className="text-[10px] text-slate-500 font-mono text-center md:text-right">
-            Powered by <a href="https://neural-nexus-inky.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">PNN Portal Neural Nexus</a> | <a href="https://neural-nexus-inky.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:underline">Nexus Hive Federation</a>
+
+          <div className="text-[10px] text-slate-600 font-mono text-center md:text-right">
+            Powered by <a href="https://neural-nexus-inky.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">PNN Portal Neural Nexus</a> | <a href="https://neural-nexus-inky.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-purple-500 hover:underline">Nexus Hive Federation</a>
           </div>
         </div>
       </footer>
 
-      
+      {/* Botón Flotante de WhatsApp */}
+      <a
+        href="https://wa.me/573005132164?text=Hola! Vengo desde su sitio web."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full shadow-lg transition-all hover:scale-110 active:scale-95 animate-bounce"
+        style={{ boxShadow: '0 0 20px rgba(37, 211, 102, 0.4)' }}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+      </a>
     </div>
   );
 }
