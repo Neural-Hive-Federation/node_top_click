@@ -53,7 +53,7 @@ function App() {
     <div className="min-h-screen bg-black text-white font-sans selection:bg-green-500/30 overflow-x-hidden">
       <SalesAdvisorWidget 
         nodeName="Top Click" 
-        adn='{"report":"Venta de ropa nueva, celulares nuevos y usados, servicio técnico y accesorios","opportunity_score":95,"google_place_id":"manual","location":{"latitude":7.8939,"longitude":-72.5078},"custom_parameters":{"template":"prism","color":"verde","business_name":"Top Click","niche":"Moda y tecnología (venta de ropa, celulares y servicio técnico)","city":"Cúcuta, Colombia","description":"Venta de ropa nueva, celulares nuevos y usados, servicio técnico y accesorios"}}' 
+        adn='{"report":"Venta de ropa nueva, celulares nuevos y usados, servicio técnico y accesorios","opportunity_score":95,"google_place_id":"manual","location":{"latitude":7.936865,"longitude":-72.503711},"custom_parameters":{"template":"prism","color":"verde","business_name":"Top Click","niche":"Moda y tecnología (venta de ropa, celulares y servicio técnico)","city":"Cúcuta, Colombia","description":"Venta de ropa nueva, celulares nuevos y usados, servicio técnico y accesorios"}}' 
       />
 
       {/* --- NAVBAR --- */}
@@ -344,6 +344,14 @@ function App() {
                       controls
                       className="w-full h-full object-cover"
                       poster={storeImage}
+                      onPlay={(e) => {
+                        const allVideos = document.querySelectorAll('video');
+                        allVideos.forEach(v => {
+                          if (v !== e.currentTarget) {
+                            v.pause();
+                          }
+                        });
+                      }}
                     />
                   ) : (
                     <img
@@ -451,7 +459,7 @@ function App() {
                 </div>
               </div>
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=7.893889,-72.507806" 
+                href="https://www.google.com/maps/search/?api=1&query=7.936865,-72.503711" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="px-6 py-3 bg-green-500 hover:bg-green-400 text-black text-xs font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95 whitespace-nowrap"
@@ -463,7 +471,7 @@ function App() {
             
             <div className="w-full rounded-2xl overflow-hidden border border-green-500/10 bg-zinc-950 p-2 h-[260px]">
               <iframe 
-                src="https://maps.google.com/maps?q=7.893889,-72.507806&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=7.936865,-72.503711&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full rounded-xl border-0 filter invert contrast-125"
                 allowFullScreen={true}
                 loading="lazy"
