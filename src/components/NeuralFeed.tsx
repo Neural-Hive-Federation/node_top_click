@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Calendar, ArrowUpRight, Share2, Check } from 'lucide-react';
+import { Calendar, ArrowUpRight, Share2, Check } from 'lucide-react';
 
 interface FeedItem {
   id: number;
