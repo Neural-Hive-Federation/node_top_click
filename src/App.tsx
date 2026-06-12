@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { SalesAdvisorWidget } from './components/SalesAdvisorWidget';
 import { NeuralFeed } from './components/NeuralFeed';
+import storeImage from './store.jpg';
 
 function App() {
   const accentColor = '#3B82F6'; // Azul vibrante
@@ -132,8 +133,8 @@ function App() {
             <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 p-3 group">
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
               <img
-                src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80"
-                alt="Top Click - Smartphones y Estilo"
+                src={storeImage}
+                alt="Top Click - Tienda Física y Estilo"
                 className="rounded-xl object-cover w-full h-[320px] sm:h-[400px] transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute bottom-6 left-6 right-6 z-20 flex justify-between items-end">
@@ -300,27 +301,37 @@ function App() {
             </div>
           </div>
 
-          <div className="lg:col-span-6">
-            <div className="bg-[#070911] border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="lg:col-span-6 space-y-4">
+            <div className="bg-[#070911] border border-white/10 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded text-blue-400">
                   <MapPin size={24} />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg text-white uppercase tracking-wider">Top Click</h3>
-                  <p className="text-slate-400 text-sm mt-1">Ubicación Georeferenciada</p>
+                  <p className="text-slate-400 text-sm mt-1">Av. 2, Barrio Aeropuerto (entre Calles 14 y 15)</p>
                   <p className="text-blue-400 text-xs font-mono uppercase tracking-widest mt-0.5">Cúcuta, Colombia</p>
                 </div>
               </div>
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=7.8939,-72.5078" 
+                href="https://www.google.com/maps/search/?api=1&query=Avenida+2+Barrio+Aeropuerto+Calle+14+y+15+Cucuta" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95 whitespace-nowrap"
               >
                 Cómo Llegar
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
+            </div>
+            
+            <div className="w-full rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 p-2 h-[260px]">
+              <iframe 
+                src="https://maps.google.com/maps?q=Avenida%202%20entre%20calles%2014%20y%2015,%20Barrio%20Aeropuerto,%20C%C3%BAcuta,%20Colombia&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full rounded-xl border-0"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
@@ -354,7 +365,7 @@ function App() {
         href="https://wa.me/573005132164?text=Hola! Vengo desde su sitio web."
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full shadow-lg transition-all hover:scale-110 active:scale-95 animate-bounce"
+        className="fixed bottom-6 right-24 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full shadow-lg transition-all hover:scale-110 active:scale-95 animate-bounce"
         style={{ boxShadow: '0 0 20px rgba(37, 211, 102, 0.4)' }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
