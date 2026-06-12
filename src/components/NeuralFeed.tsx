@@ -1,5 +1,5 @@
-import React from 'react';
-import { Sparkles, Calendar, ArrowUpRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sparkles, Calendar, ArrowUpRight, Share2, Check } from 'lucide-react';
 
 interface FeedItem {
   id: number;
@@ -10,6 +10,8 @@ interface FeedItem {
 }
 
 export const NeuralFeed: React.FC<{ nodeId?: string }> = () => {
+  const [copiedId, setCopiedId] = useState<number | null>(null);
+
   const feedItems: FeedItem[] = [
     {
       id: 1,
@@ -33,6 +35,30 @@ export const NeuralFeed: React.FC<{ nodeId?: string }> = () => {
       date: "Hace 3 días"
     }
   ];
+
+  const handleShare = async (item: FeedItem) => {
+    const shareData = {
+      title: item.title,
+      text: `${item.excerpt} - Leído en Top Click.`,
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.log("Error al compartir:", err);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(`${item.title}\n\n${item.excerpt}\n\nLeer más aquí: ${window.location.href}`);
+        setCopiedId(item.id);
+        setTimeout(() => setCopiedId(null), 2000);
+      } catch (err) {
+        console.error("No se pudo copiar el texto:", err);
+      }
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -59,14 +85,27 @@ export const NeuralFeed: React.FC<{ nodeId?: string }> = () => {
                 {item.excerpt}
               </p>
             </div>
-            <a 
-              href="https://wa.me/573005132164?text=Hola! Me interesa saber más sobre la noticia: de la web."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-slate-400 hover:text-white transition-colors"
-            >
-              Saber más <ArrowUpRight size={12} />
-            </a>
+            <div className="flex items-center justify-between border-t border-white/5 pt-4 mt-2">
+              <a 
+                href={`https://wa.me/573005132164?text=Hola! Me interesa saber más sobre la noticia: "${item.title}"`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-slate-400 hover:text-white transition-colors"
+              >
+                Saber más <ArrowUpRight size={12} />
+              </a>
+              <button
+                onClick={() => handleShare(item)}
+                className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 hover:border-white/20 transition-all flex items-center justify-center"
+                title="Compartir noticia"
+              >
+                {copiedId === item.id ? (
+                  <Check size={12} className="text-green-400" />
+                ) : (
+                  <Share2 size={12} />
+                )}
+              </button>
+            </div>
           </div>
         ))}
       </div>
