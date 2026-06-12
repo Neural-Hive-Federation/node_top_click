@@ -66,11 +66,11 @@ export const NeuralFeed: React.FC<{ nodeId?: string }> = () => {
         {feedItems.map((item) => (
           <div 
             key={item.id}
-            className="p-6 rounded-2xl bg-[#070911] border border-white/5 hover:border-blue-500/20 hover:bg-blue-950/5 transition-all group duration-300 flex flex-col justify-between"
+            className="p-6 rounded-2xl bg-[#070911] border border-white/5 hover:border-green-500/20 hover:bg-green-950/5 transition-all group duration-300 flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-blue-400 bg-blue-950/80 px-2.5 py-1 rounded border border-blue-900/40">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-green-400 bg-green-950/80 px-2.5 py-1 rounded border border-green-900/40">
                   {item.category}
                 </span>
                 <span className="text-[10px] font-mono text-slate-500 flex items-center gap-1">
@@ -78,7 +78,7 @@ export const NeuralFeed: React.FC<{ nodeId?: string }> = () => {
                   {item.date}
                 </span>
               </div>
-              <h4 className="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+              <h4 className="text-base font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
                 {item.title}
               </h4>
               <p className="text-slate-400 text-xs font-light leading-relaxed mb-4">

@@ -24,20 +24,25 @@ import img4 from './galeria/wp_image_1781204909435.jpeg';
 import img5 from './galeria/wp_image_1781204909799.jpeg';
 import img6 from './galeria/wp_image_1781204909832.jpeg';
 import img7 from './galeria/wp_image_1781204909933.jpeg';
-import img8 from './galeria/wp_image_1781224067011.jpeg';
+
+// Importar videos de la galería del cliente
+import video1 from './galeria/video_1.mp4';
+import video2 from './galeria/video_2.mp4';
+
 
 function App() {
-  const [activeFilter, setActiveFilter] = useState<'todos' | 'Soporte' | 'Tecnología' | 'Moda'>('todos');
+  const [activeFilter, setActiveFilter] = useState<'todos' | 'Soporte' | 'Tecnología' | 'Moda' | 'Videos'>('todos');
 
   const galleryImages = [
     { src: img1, title: 'Reparación Especializada de Pantalla', category: 'Soporte', desc: 'Instalación garantizada con sellado premium' },
-    { src: img8, title: 'Pantallas y Repuestos Originales', category: 'Soporte', desc: 'Calidad superior y brillo original para tu celular' },
     { src: img7, title: 'Cambio de Visor y LCD', category: 'Soporte', desc: 'Recuperación de pantallas con tecnología OCA' },
     { src: img3, title: 'Servicio Técnico Express', category: 'Soporte', desc: 'Diagnóstico rápido de hardware y software' },
     { src: img2, title: 'Dispositivos Nuevos y Usados', category: 'Tecnología', desc: 'Equipos homologados con garantía real' },
     { src: img4, title: 'Accesorios y Blindajes', category: 'Tecnología', desc: 'Vidrios templados, estuches y cargadores premium' },
     { src: img5, title: 'Colección de Ropa Urbana', category: 'Moda', desc: 'Chaquetas y prendas exclusivas tech-wear' },
-    { src: img6, title: 'Moda y Estilo Urbano', category: 'Moda', desc: 'Jeans y vestuario seleccionado para tu estilo' }
+    { src: img6, title: 'Moda y Estilo Urbano', category: 'Moda', desc: 'Jeans y vestuario seleccionado para tu estilo' },
+    { src: video1, isVideo: true, title: 'Taller Técnico y Laboratorio', category: 'Videos', desc: 'Así cuidamos y reparamos cada dispositivo en Top Click' },
+    { src: video2, isVideo: true, title: 'Moda y Stock de Temporada', category: 'Videos', desc: 'Nuestra vitrina interactiva con lo último en tendencias' }
   ];
 
   const filteredImages = activeFilter === 'todos' 
@@ -303,7 +308,7 @@ function App() {
 
           {/* Filtros de la galería */}
           <div className="flex justify-center flex-wrap gap-2 mb-12">
-            {(['todos', 'Soporte', 'Tecnología', 'Moda'] as const).map((filter) => (
+            {(['todos', 'Soporte', 'Tecnología', 'Moda', 'Videos'] as const).map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
@@ -333,11 +338,20 @@ function App() {
                 className="group relative rounded-xl overflow-hidden border border-zinc-800 hover:border-green-500/30 bg-zinc-950 p-2 flex flex-col justify-between"
               >
                 <div className="relative rounded-lg overflow-hidden h-64 bg-zinc-900 flex items-center justify-center">
-                  <img
-                    src={img.src}
-                    alt={img.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  {'isVideo' in img && img.isVideo ? (
+                    <video
+                      src={img.src}
+                      controls
+                      className="w-full h-full object-cover"
+                      poster={storeImage}
+                    />
+                  ) : (
+                    <img
+                      src={img.src}
+                      alt={img.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
                   <div className="absolute top-3 right-3 bg-black/85 backdrop-blur border border-green-500/20 px-2 py-0.5 rounded text-[9px] font-mono text-green-400 uppercase tracking-widest">
                     {img.category}
                   </div>
@@ -437,7 +451,7 @@ function App() {
                 </div>
               </div>
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=Avenida+2+Barrio+Aeropuerto+Calle+14+y+15+Cucuta" 
+                href="https://www.google.com/maps/search/?api=1&query=7.893889,-72.507806" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="px-6 py-3 bg-green-500 hover:bg-green-400 text-black text-xs font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-2 hover:scale-105 active:scale-95 whitespace-nowrap"
@@ -449,7 +463,7 @@ function App() {
             
             <div className="w-full rounded-2xl overflow-hidden border border-green-500/10 bg-zinc-950 p-2 h-[260px]">
               <iframe 
-                src="https://maps.google.com/maps?q=Avenida%202%20entre%20calles%2014%20y%2015,%20Barrio%20Aeropuerto,%20C%C3%BAcuta,%20Colombia&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=7.893889,-72.507806&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full rounded-xl border-0 filter invert contrast-125"
                 allowFullScreen={true}
                 loading="lazy"
@@ -469,10 +483,10 @@ function App() {
           </div>
           
           <div className="flex items-center gap-6">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-sm">
+            <a href="https://www.instagram.com/topclick18/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-sm">
               Instagram
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-sm">
+            <a href="https://www.facebook.com/search/top?q=Dilan%20Andrey" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-sm">
               Facebook
             </a>
           </div>

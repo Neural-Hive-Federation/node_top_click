@@ -95,16 +95,16 @@ export const SalesAdvisorWidget: React.FC<SalesAdvisorWidgetProps> = ({ nodeName
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="mb-4 w-85 overflow-hidden rounded-2xl border border-blue-500/30 bg-black/95 backdrop-blur-xl shadow-2xl shadow-blue-500/20"
+            className="mb-4 w-85 overflow-hidden rounded-2xl border border-green-500/30 bg-black/95 backdrop-blur-xl shadow-2xl shadow-green-500/20"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-700 to-black p-4 text-white">
+            <div className="bg-gradient-to-r from-green-700 to-black p-4 text-white">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="h-2 w-2 animate-pulse rounded-full bg-green-400"></div>
                   <span className="text-[10px] font-bold tracking-widest uppercase italic">Neural Status: Active</span>
                 </div>
-                <button onClick={() => setIsOpen(false)} className="hover:text-blue-200">
+                <button onClick={() => setIsOpen(false)} className="hover:text-green-250">
                   <X size={18} />
                 </button>
               </div>
@@ -115,12 +115,12 @@ export const SalesAdvisorWidget: React.FC<SalesAdvisorWidgetProps> = ({ nodeName
             {/* Chat Content */}
             <div className="p-4 space-y-4">
               <div className="rounded-lg bg-white/5 p-3 text-xs text-gray-300 border border-white/10">
-                <p className="italic">"Hola, soy Beatriz. He analizado el ADN de <span className="text-blue-500 font-bold">{nodeName}</span> en {businessCity.split(',')[0]}. Este sitio está optimizado para dominar el mercado local mientras tú descansas."</p>
+                <p className="italic">"Hola, soy Beatriz. He analizado el ADN de <span className="text-green-450 font-bold">{nodeName}</span> en {businessCity.split(',')[0]}. Este sitio está optimizado para dominar el mercado local mientras tú descansas."</p>
               </div>
               
               <div className="grid grid-cols-2 gap-2 text-[9px] uppercase tracking-widest text-gray-400 font-bold">
                 <div className="flex items-center gap-1 p-2 rounded bg-white/5 border border-white/10">
-                  <Database size={10} className="text-blue-500" />
+                  <Database size={10} className="text-green-500" />
                   <span>30/30 Sembrado</span>
                 </div>
                 <div className="flex items-center gap-1 p-2 rounded bg-white/5 border border-white/10">
@@ -135,7 +135,7 @@ export const SalesAdvisorWidget: React.FC<SalesAdvisorWidgetProps> = ({ nodeName
 
               <button 
                 onClick={() => setChatOpen(true)}
-                className="w-full rounded-full bg-blue-600 py-3 text-xs font-bold text-white hover:bg-blue-700 transition-all uppercase tracking-widest shadow-lg shadow-blue-600/20"
+                className="w-full rounded-full bg-green-600 py-3 text-xs font-bold text-black hover:bg-green-500 transition-all uppercase tracking-widest shadow-lg shadow-green-600/20"
               >
                 Hablar con Beatriz
               </button>
@@ -152,10 +152,10 @@ export const SalesAdvisorWidget: React.FC<SalesAdvisorWidgetProps> = ({ nodeName
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="mb-4 w-96 h-[480px] flex flex-col overflow-hidden rounded-2xl border border-blue-500/30 bg-black/95 backdrop-blur-xl shadow-2xl shadow-blue-500/20"
+            className="mb-4 w-96 h-[480px] flex flex-col overflow-hidden rounded-2xl border border-green-500/30 bg-black/95 backdrop-blur-xl shadow-2xl shadow-green-500/20"
           >
             {/* Header de conversación interactiva */}
-            <div className="bg-gradient-to-r from-blue-700 to-black p-4 text-white flex items-center justify-between">
+            <div className="bg-gradient-to-r from-green-700 to-black p-4 text-white flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="h-2 w-2 animate-pulse rounded-full bg-green-400"></div>
                 <div>
@@ -166,11 +166,11 @@ export const SalesAdvisorWidget: React.FC<SalesAdvisorWidgetProps> = ({ nodeName
               <div className="flex items-center gap-2">
                 <button 
                   onClick={() => setChatOpen(false)} 
-                  className="text-xs px-2.5 py-1 bg-white/10 hover:bg-white/20 rounded border border-white/10 transition-colors uppercase tracking-widest text-[9px] font-bold"
+                  className="text-xs px-2.5 py-1 bg-white/10 hover:bg-white/20 rounded border border-white/10 transition-colors uppercase tracking-widest text-[9px] font-bold text-green-400"
                 >
                   Volver
                 </button>
-                <button onClick={() => setIsOpen(false)} className="hover:text-blue-200">
+                <button onClick={() => setIsOpen(false)} className="hover:text-green-200">
                   <X size={18} />
                 </button>
               </div>
@@ -187,7 +187,7 @@ export const SalesAdvisorWidget: React.FC<SalesAdvisorWidgetProps> = ({ nodeName
                   <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                     <div className={`max-w-[80%] p-3 rounded-2xl text-xs leading-relaxed ${
                       msg.role === 'user' 
-                        ? 'bg-blue-600 text-white rounded-br-none' 
+                        ? 'bg-green-600 text-black rounded-br-none' 
                         : 'bg-white/5 border border-white/10 text-gray-200 rounded-bl-none'
                     }`}>
                       {msg.content}
@@ -217,12 +217,12 @@ export const SalesAdvisorWidget: React.FC<SalesAdvisorWidgetProps> = ({ nodeName
                 onChange={e => setInputMessage(e.target.value)}
                 placeholder="Escribe tu consulta sobre celulares o moda..."
                 disabled={isTyping}
-                className="flex-1 bg-black/50 border border-white/10 rounded-full px-4 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50"
+                className="flex-1 bg-black/50 border border-white/10 rounded-full px-4 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-green-500/50"
               />
               <button 
                 type="submit"
                 disabled={isTyping}
-                className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase px-4 rounded-full transition-colors disabled:opacity-50"
+                className="bg-green-600 hover:bg-green-500 text-black font-bold text-xs uppercase px-4 rounded-full transition-colors disabled:opacity-50"
               >
                 Enviar
               </button>
@@ -235,7 +235,7 @@ export const SalesAdvisorWidget: React.FC<SalesAdvisorWidgetProps> = ({ nodeName
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/40 border-2 border-white/10"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-green-600 text-black shadow-lg shadow-green-600/40 border-2 border-white/10"
       >
         {isOpen ? <X /> : <MessageSquare />}
       </motion.button>
@@ -244,3 +244,4 @@ export const SalesAdvisorWidget: React.FC<SalesAdvisorWidgetProps> = ({ nodeName
 };
 
 export default SalesAdvisorWidget;
+
