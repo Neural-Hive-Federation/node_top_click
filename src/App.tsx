@@ -1,19 +1,11 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Phone, 
-  Mail, 
   MapPin, 
   Clock, 
-  Facebook, 
-  Instagram, 
-  Youtube, 
-  Send,
   Smartphone,
   Wrench,
   ShoppingBag,
-  Award,
-  ShieldCheck,
   Star,
   ChevronRight
 } from 'lucide-react';
@@ -22,7 +14,6 @@ import { NeuralFeed } from './components/NeuralFeed';
 import storeImage from './store.jpg';
 
 function App() {
-  const accentColor = '#3B82F6'; // Azul vibrante
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-blue-500/30 overflow-x-hidden">
