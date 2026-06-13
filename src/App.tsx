@@ -9,7 +9,8 @@ import {
   Star,
   ChevronRight,
   Sparkles,
-  ShieldAlert
+  ShieldAlert,
+  CreditCard
 } from 'lucide-react';
 import { useState } from 'react';
 import { SalesAdvisorWidget } from './components/SalesAdvisorWidget';
@@ -24,6 +25,7 @@ import img4 from './galeria/wp_image_1781204909435.jpeg';
 import img5 from './galeria/wp_image_1781204909799.jpeg';
 import img6 from './galeria/wp_image_1781204909832.jpeg';
 import img7 from './galeria/wp_image_1781204909933.jpeg';
+import img8 from './galeria/wp_image_1781287744762.jpeg';
 
 // Importar videos de la galería del cliente
 import video1 from './galeria/video_1.mp4';
@@ -41,6 +43,7 @@ function App() {
     { src: img4, title: 'Accesorios y Blindajes', category: 'Tecnología', desc: 'Vidrios templados, estuches y cargadores premium' },
     { src: img5, title: 'Colección de Ropa Urbana', category: 'Moda', desc: 'Chaquetas y prendas exclusivas tech-wear' },
     { src: img6, title: 'Moda y Estilo Urbano', category: 'Moda', desc: 'Jeans y vestuario seleccionado para tu estilo' },
+    { src: img8, title: 'Corresponsal Bancario Bancolombia', category: 'Soporte', desc: 'Retiros, depósitos y pago de servicios en nuestro local' },
     { src: video1, isVideo: true, title: 'Taller Técnico y Laboratorio', category: 'Videos', desc: 'Así cuidamos y reparamos cada dispositivo en Top Click' },
     { src: video2, isVideo: true, title: 'Moda y Stock de Temporada', category: 'Videos', desc: 'Nuestra vitrina interactiva con lo último en tendencias' }
   ];
@@ -217,7 +220,7 @@ function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Servicio 1: Celulares */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -289,6 +292,31 @@ function App() {
                 className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-green-400 group-hover:text-green-300 hover:underline"
               >
                 Ver Catálogo Ropa <ChevronRight size={14} />
+              </a>
+            </motion.div>
+
+            {/* Servicio 4: Corresponsal Bancario */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="p-8 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center justify-center text-green-400 mb-6 group-hover:bg-green-500 group-hover:text-black transition-all">
+                <CreditCard size={24} />
+              </div>
+              <h4 className="text-xl font-bold uppercase tracking-wide mb-3">Corresponsal Bancario</h4>
+              <p className="text-slate-400 text-sm font-light leading-relaxed mb-6">
+                Realiza tus retiros, depósitos, transferencias, pago de facturas y convenios de Bancolombia de forma ágil y segura.
+              </p>
+              <a 
+                href="https://wa.me/573005132164?text=Hola! Necesito hacer una operación en el corresponsal Bancolombia."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-green-400 group-hover:text-green-300 hover:underline"
+              >
+                Consultar Operación <ChevronRight size={14} />
               </a>
             </motion.div>
           </div>
@@ -419,7 +447,7 @@ function App() {
                 </div>
                 <div>
                   <h4 className="font-bold text-white uppercase tracking-wider text-sm">Dirección</h4>
-                  <p className="text-slate-400 text-sm mt-1">Av. 2 #15-49, Barrio Aeropuerto (entre Calles 14 y 15)</p>
+                  <p className="text-slate-400 text-sm mt-1">Av. 2 #15-49, Barrio Aeropuerto (entre Calles 15 y 16)</p>
                   <p className="text-green-500 text-xs font-mono uppercase tracking-widest mt-0.5">Cúcuta, Colombia</p>
                 </div>
               </div>
@@ -454,7 +482,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg text-white uppercase tracking-wider">Top Click</h3>
-                  <p className="text-slate-400 text-sm mt-1">Av. 2, Barrio Aeropuerto (entre Calles 14 y 15)</p>
+                  <p className="text-slate-400 text-sm mt-1">Av. 2, Barrio Aeropuerto (entre Calles 15 y 16)</p>
                   <p className="text-green-500 text-xs font-mono uppercase tracking-widest mt-0.5">Cúcuta, Colombia</p>
                 </div>
               </div>
