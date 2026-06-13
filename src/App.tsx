@@ -500,7 +500,7 @@ function App() {
             <div className="w-full rounded-2xl overflow-hidden border border-green-500/10 bg-zinc-950 p-2 h-[260px]">
               <iframe 
                 src="https://maps.google.com/maps?q=7.936865,-72.503711&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                className="w-full h-full rounded-xl border-0 filter invert contrast-125"
+                className="w-full h-full rounded-xl border-0"
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
