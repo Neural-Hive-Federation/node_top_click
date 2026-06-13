@@ -230,7 +230,7 @@ function App() {
               viewport={{ once: true }}
               className="p-5 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
             >
-              <div className="relative h-44 w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
+              <div className="relative aspect-[9/16] w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
                 <img src={img4} alt="Celulares Nuevos y Usados" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="flex items-center gap-3 mb-3">
@@ -260,7 +260,7 @@ function App() {
               transition={{ delay: 0.1 }}
               className="p-5 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
             >
-              <div className="relative h-44 w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
+              <div className="relative aspect-[9/16] w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
                 <img src={imgTech} alt="Servicio Técnico Especializado" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="flex items-center gap-3 mb-3">
@@ -290,7 +290,7 @@ function App() {
               transition={{ delay: 0.2 }}
               className="p-5 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
             >
-              <div className="relative h-44 w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
+              <div className="relative aspect-[9/16] w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
                 <img src={img2} alt="Ropa Nueva y Accesorios" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="flex items-center gap-3 mb-3">
@@ -320,7 +320,7 @@ function App() {
               transition={{ delay: 0.3 }}
               className="p-5 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
             >
-              <div className="relative h-44 w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
+              <div className="relative aspect-[9/16] w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
                 <img src={img8} alt="Corresponsal Bancario" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="flex items-center gap-3 mb-3">
