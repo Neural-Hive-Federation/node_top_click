@@ -26,6 +26,7 @@ import img5 from './galeria/wp_image_1781204909799.jpeg';
 import img6 from './galeria/wp_image_1781204909832.jpeg';
 import img7 from './galeria/wp_image_1781204909933.jpeg';
 import img8 from './galeria/wp_image_1781287744762.jpeg';
+import imgTech from './galeria/wp_image_1781283329657.jpeg';
 
 // Importar videos de la galería del cliente
 import video1 from './galeria/video_1.mp4';
@@ -44,6 +45,7 @@ function App() {
     { src: img5, title: 'Colección de Ropa Urbana', category: 'Moda', desc: 'Chaquetas y prendas exclusivas tech-wear' },
     { src: img6, title: 'Moda y Estilo Urbano', category: 'Moda', desc: 'Jeans y vestuario seleccionado para tu estilo' },
     { src: img8, title: 'Corresponsal Bancario Bancolombia', category: 'Soporte', desc: 'Retiros, depósitos y pago de servicios en nuestro local' },
+    { src: imgTech, title: 'Servicio Técnico Especializado', category: 'Soporte', desc: 'Reparación de hardware y micro-soldadura en nuestro búnker' },
     { src: video1, isVideo: true, title: 'Taller Técnico y Laboratorio', category: 'Videos', desc: 'Así cuidamos y reparamos cada dispositivo en Top Click' },
     { src: video2, isVideo: true, title: 'Moda y Stock de Temporada', category: 'Videos', desc: 'Nuestra vitrina interactiva con lo último en tendencias' }
   ];
@@ -226,13 +228,18 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-8 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
+              className="p-5 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center justify-center text-green-400 mb-6 group-hover:bg-green-500 group-hover:text-black transition-all">
-                <Smartphone size={24} />
+              <div className="relative h-44 w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
+                <img src={img4} alt="Celulares Nuevos y Usados" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <h4 className="text-xl font-bold uppercase tracking-wide mb-3">Celulares Nuevos &amp; Usados</h4>
-              <p className="text-slate-400 text-sm font-light leading-relaxed mb-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-green-500/10 border border-green-500/20 rounded-lg flex items-center justify-center text-green-400 group-hover:bg-green-500 group-hover:text-black transition-all">
+                  <Smartphone size={16} />
+                </div>
+                <h4 className="text-base font-bold uppercase tracking-wide">Celulares Nuevos &amp; Usados</h4>
+              </div>
+              <p className="text-slate-400 text-xs font-light leading-relaxed mb-6">
                 Venta de dispositivos de las mejores marcas con garantía y asesoramiento personalizado. Equipos garantizados y homologados.
               </p>
               <a 
@@ -251,13 +258,18 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="p-8 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
+              className="p-5 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center justify-center text-green-400 mb-6 group-hover:bg-green-500 group-hover:text-black transition-all">
-                <Wrench size={24} />
+              <div className="relative h-44 w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
+                <img src={imgTech} alt="Servicio Técnico Especializado" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <h4 className="text-xl font-bold uppercase tracking-wide mb-3">Servicio Técnico Especializado</h4>
-              <p className="text-slate-400 text-sm font-light leading-relaxed mb-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-green-500/10 border border-green-500/20 rounded-lg flex items-center justify-center text-green-400 group-hover:bg-green-500 group-hover:text-black transition-all">
+                  <Wrench size={16} />
+                </div>
+                <h4 className="text-base font-bold uppercase tracking-wide">Servicio Técnico Especializado</h4>
+              </div>
+              <p className="text-slate-400 text-xs font-light leading-relaxed mb-6">
                 Cambio de visor, repuestos de batería, reparación de software y daños físicos con técnicos certificados y garantía real.
               </p>
               <a 
@@ -276,13 +288,18 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="p-8 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
+              className="p-5 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center justify-center text-green-400 mb-6 group-hover:bg-green-500 group-hover:text-black transition-all">
-                <ShoppingBag size={24} />
+              <div className="relative h-44 w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
+                <img src={img2} alt="Ropa Nueva y Accesorios" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <h4 className="text-xl font-bold uppercase tracking-wide mb-3">Ropa Nueva y Accesorios</h4>
-              <p className="text-slate-400 text-sm font-light leading-relaxed mb-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-green-500/10 border border-green-500/20 rounded-lg flex items-center justify-center text-green-400 group-hover:bg-green-500 group-hover:text-black transition-all">
+                  <ShoppingBag size={16} />
+                </div>
+                <h4 className="text-base font-bold uppercase tracking-wide">Ropa Nueva y Accesorios</h4>
+              </div>
+              <p className="text-slate-400 text-xs font-light leading-relaxed mb-6">
                 Catálogo exclusivo de ropa moderna con un estilo urbano increíble. Ropa nueva para complementar tu outfit diario.
               </p>
               <a 
@@ -301,13 +318,18 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="p-8 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
+              className="p-5 bg-black border border-green-500/5 hover:border-green-500/30 rounded-2xl transition-all group hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center justify-center text-green-400 mb-6 group-hover:bg-green-500 group-hover:text-black transition-all">
-                <CreditCard size={24} />
+              <div className="relative h-44 w-full rounded-xl overflow-hidden mb-5 border border-green-500/10 group-hover:border-green-500/30 transition-all">
+                <img src={img8} alt="Corresponsal Bancario" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <h4 className="text-xl font-bold uppercase tracking-wide mb-3">Corresponsal Bancario</h4>
-              <p className="text-slate-400 text-sm font-light leading-relaxed mb-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-green-500/10 border border-green-500/20 rounded-lg flex items-center justify-center text-green-400 group-hover:bg-green-500 group-hover:text-black transition-all">
+                  <CreditCard size={16} />
+                </div>
+                <h4 className="text-base font-bold uppercase tracking-wide">Corresponsal Bancario</h4>
+              </div>
+              <p className="text-slate-400 text-xs font-light leading-relaxed mb-6">
                 Realiza tus retiros, depósitos, transferencias, pago de facturas y convenios de Bancolombia de forma ágil y segura.
               </p>
               <a 
