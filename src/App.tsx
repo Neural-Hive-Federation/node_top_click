@@ -448,7 +448,7 @@ function App() {
             <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight mt-2">Novedades &amp; Tendencias</h3>
           </div>
           <div className="max-w-4xl mx-auto">
-            <NeuralFeed nodeId="91e6342d-c0d8-440b-85b9-4a0c3a8a9959" />
+            <NeuralFeed nodeId="node_top_click" />
           </div>
         </div>
       </section>
