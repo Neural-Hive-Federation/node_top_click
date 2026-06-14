@@ -547,6 +547,9 @@ function App() {
             <a href="https://www.facebook.com/search/top?q=Dilan%20Andrey" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-sm">
               Facebook
             </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=7.936865,-72.503711" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 text-green-500 font-bold transition-colors text-sm">
+              Google Maps
+            </a>
           </div>
 
           <div className="text-[10px] text-slate-600 font-mono text-center md:text-right">
