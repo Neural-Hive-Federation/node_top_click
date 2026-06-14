@@ -38,7 +38,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
     const omniCoreUrl = process.env.OMNI_CORE_API_URL || 'https://neural-nexus-inky.vercel.app/api/ai/generate';
     const omniCoreToken = process.env.OMNI_CORE_API_KEY || 'beatriz_publisher_sync_key_2026';
 
-    const prompt = `Actúa como redactor publicitario para el negocio "${businessName}" en la ciudad de "${city}". Su nicho es "${niche}". Genera una noticia de marketing corta, atractiva y profesional para su feed web. Devuelve la respuesta en formato JSON plano con los campos: "title" (título corto y potente), "category" (Moda, Tecnología o Soporte), "summary" (resumen de 1 frase), "content" (artículo de 3-4 frases).`;
+    const prompt = `Actúa como redactor publicitario para el negocio "${businessName}" en la ciudad de "${city}". Su nicho es "${niche}". Genera una noticia de marketing corta, atractiva y profesional para su feed web. Devuelve la respuesta en formato JSON plano con los campos: "title" (título corto y potente), "category" (Moda, Tecnología, Soporte, Servicios o Novedades), "summary" (resumen de 1 frase), "content" (artículo de 3-4 frases).`;
 
     const aiResponse = await fetch(omniCoreUrl, {
       method: 'POST',
@@ -122,7 +122,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
         content: post.content,
         image_url: imageUrl,
         source_name: 'Auto-Publisher Autónomo',
-        source_url: 'https://nodetopclick.vercel.app',
+        source_url: `https://${nodeId.replace(/_/g, '')}.vercel.app`,
         published_at: new Date().toISOString(),
         category: post.category || 'Novedades',
         tags: [nodeId],
