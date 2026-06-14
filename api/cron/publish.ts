@@ -1,14 +1,25 @@
-import { NextRequest, NextResponse } from 'next/server';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-export const dynamic = 'force-dynamic';
+export default async function handler(request: VercelRequest, response: VercelResponse) {
+  // Habilitar CORS si es necesario
+  response.setHeader('Access-Control-Allow-Credentials', 'true');
+  response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  response.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
 
-export async function GET(request: NextRequest) {
+  if (request.method === 'OPTIONS') {
+    return response.status(200).end();
+  }
+
   try {
     // 1. Verificar autorización del cron (Secret de Vercel)
-    const authHeader = request.headers.get('authorization');
+    const authHeader = request.headers['authorization'];
     const cronSecret = process.env.CRON_SECRET;
     if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
-      return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+      return response.status(401).json({ error: 'No autorizado' });
     }
 
     // Configuración de metadatos del nodo (ADN de Top Click)
@@ -20,7 +31,7 @@ export async function GET(request: NextRequest) {
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
     if (!supabaseKey) {
-      return NextResponse.json({ error: 'Falta la clave de Supabase' }, { status: 500 });
+      return response.status(500).json({ error: 'Falta la clave de Supabase' });
     }
 
     // 2. Consulta de IA vía Pasarela Central Neural API DB (Omni Core)
@@ -130,7 +141,7 @@ export async function GET(request: NextRequest) {
 
     const insertedData = await insertResponse.json();
 
-    return NextResponse.json({
+    return response.status(200).json({
       success: true,
       message: 'Post autónomo publicado exitosamente',
       data: insertedData
@@ -138,9 +149,8 @@ export async function GET(request: NextRequest) {
 
   } catch (error) {
     console.error('Error en el auto-publicador del nodo:', error);
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Error interno' },
-      { status: 500 }
-    );
+    return response.status(500).json({
+      error: error instanceof Error ? error.message : 'Error interno'
+    });
   }
 }
